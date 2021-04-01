@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+
+    </style>
 </head>
 <body>
 <!-- KaTeX -->
@@ -10,8 +13,71 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/contrib/auto-render.min.js"></script>
 
+<!--<script>-->
+<!--    document.addEventListener("DOMContentLoaded", function () {-->
+<!--        renderMathInElement(document.body, {-->
+<!--            delimiters: [-->
+<!--                {left: "$$", right: "$$", display: true},-->
+<!--                {left: "$", right: "$", display: false}-->
+<!--            ]-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="marked.min.js"></script>
+<div id="content">markdown</div>
+
+<!--mermaid 初始化-->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    var renderer = new marked.Renderer();
+    renderer.code = function (code, language) {
+        if (language == 'mermaid')
+            return '<pre class="mermaid">' + code + '</pre>';
+        else
+            return '<pre><code>' + code + '</code></pre>';
+    };
+
+    $(document).ready(function () {
+        var html =
+            marked(
+                [
+                    'Markdown Mermaid Example',
+                    '------------------------',
+                    '',
+                    '```mermaid',
+                    'graph TD',
+                    '  A-->B',
+                    '  A-->C',
+                    '  B-->D',
+                    '  C-->D',
+                    '```',
+                    'SequenceDiagram',
+                    '```mermaid',
+                    'sequenceDiagram',
+                    '  participant John',
+                    '  participant Alice',
+                    '  Alice->>John: Hello',
+                    '  John-->Alice: Hi',
+                    '```',
+                    '$\\delta a$' +
+                    '\n' +
+                    '```mermaid' +
+                    '\n' +
+                    'graph TD' +
+                    '\n' +
+                    'A-->B' +
+                    '\n' +
+                    '```'
+                ].join('\n'),
+                {renderer: renderer}
+            );
+
+        $('#content').html(html);
+        console.log(html);
+        mermaid.init();
         renderMathInElement(document.body, {
             delimiters: [
                 {left: "$$", right: "$$", display: true},
@@ -19,33 +85,23 @@
             ]
         });
     });
-</script>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="marked.min.js"></script>
-<div id="content">markdown</div>
-<script src="https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js"></script>
 
-<script>
-    // $("#content").html(marked('# hello\nworld $\\delta abc$'));
-    var s = "";
-    $("#content").html(marked('# hello\nworld ' +
-        '$\\exists u(sc(u)\\land\\lnot\\exist w(sc(w)\\land w[0]=1\\land w[1]=2)\\land\\lnot\\exist v(w[3]=v[3]\\land u[0]=v[0]\\land u[1]=v[1]))$' +
-        '\n' +
-        '```mermaid\n' +
-        'graph TD;A-->B;A-->C;B-->D;C-->D;\n' +
-        '\n' +
-        '```' +
-        '\n' +
-        '$\\delta a_{hello world}$'));
-    var renderer = marked.Renderer();
-    renderer.code = function (code, language) {
-        console.log(language);
-        console.log(code);
-        if (code.match(/^mermaid/) || code.match(/^graph/)) {
-            return '<div class="mermaid">' + 'abc' + '</div>';
-        }
-    };
 </script>
+Here is one fixed mermaid diagram:
+<div class="mermaid">
+    graph TD
+    A[Client] --> B[Load Balancer]
+    B --> C[Server1]
+    B --> D[Server2]
+</div>
+
+And here is another:
+<div class="mermaid">
+    graph TD
+    A[Client] -->|tcp_123| B(Load Balancer)
+    B -->|tcp_456| C[Server1]
+    B -->|tcp_456| D[Server2]
+</div>
 </body>
 </html>
