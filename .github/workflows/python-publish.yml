@@ -1,0 +1,20 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Deploy
+
+on: [ pull , push ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: git commnad
+      uses: garygrossgarten/github-action-ssh@release
+      with:
+        command: cd /wyftp/html/ci/MarkDownRenderer && git fetch origin main && git reset --hard origin/main
+        host: ${{ secrets.HOST }}
+        username: root
+        privateKey: ${{ secrets.PRIVATE_KEY}}

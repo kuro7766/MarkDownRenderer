@@ -1,7 +1,25 @@
+/*blockquote {*/
+/*    position: relative;*/
+/*    margin: 40px 0;*/
+/*    border: 2px solid white;*/
+/*    box-shadow: 2px 2px 4px mediumpurple;*/
+/*    text-indent: 1.6em;*/
+/*}*/
 blockquote {
-    position: relative;
-    margin: 40px 0;
-    border: 2px solid white;
-    box-shadow: 2px 2px 4px mediumpurple;
-    text-indent: 1.6em;
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "'""";
+}
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+blockquote p {
+    display: inline;
 }
