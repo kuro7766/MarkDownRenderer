@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+}
+/* 左侧样式 */
+#d1 { /* 左侧大div的布局 */
+    background: olivedrab;
+    height: 690px;
+    width: 25%;
+    float: left;
+}
+#d3 { /* 头像div的样式 */
+    height: 100px;
+    width: 100px;
+    margin: 20px auto;
+    border-radius: 50%;
+    border: 3px solid white;
+    overflow: hidden; /* 溢出的隐藏 */
+}
+#d3>.blog_head {
+    width: 100%; /* 将头像整个宽都显示出来，注意头像需要裁剪成正方形*/
+}
+.blog_name { /* 博客名时间定义青春的样式 */
+    font-family: "Xingkai SC";
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+}
+.blog_img { /* 博客信息简介样式 */
+    font-family: "Songti SC";
+    font-size: 10px;
+    text-align: center;
+}
+.conn { /* 链接区div样式  */
+    font-family: "Songti TC";
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+}
+li { /* 去掉无序列表的黑点及向左移动 */
+    margin-left: -16px;
+    list-style-type: none;
+}
+.blog_link { /* 将链接区和上面的博客简介div拉开距离 */
+    margin-top: 80px;
+}
+
+.blog_tag { /* 博客左侧最下面的人生格言区div和链接区div的距离拉开 */
+    margin-top: 80px;
+}
+.blog_tag li { /* 去掉无序列表的黑点及向左移动 */
+    margin-left: -25px;
+    margin-right: 10px;
+    list-style-type: none;
+}
+.tag { /* 指定人生格言区的字体样式及布局*/
+    font-family: "Songti TC";
+    font-size: 5px;
+    text-align: left;
+    color: wheat;
+}
+
+/* 右侧样式 */
+#d2 {
+    height: 690px;
+    width: 75%;
+    float: left;
+}
+.article { /* 右侧区一个文章为一个div，对所有文章的div的布局和样式进行设计*/
+    background-color:gainsboro;
+    margin: 20px 40px 10px 10px;
+
+    /* 边框阴影 */
+    box-shadow: 5px 5px 5px cadetblue;
+}
+.article a { /* 文章链接的字体样式布局设计 */
+    text-decoration: none;
+    font-size: larger;
+    left: 40px;
+    color: skyblue;
+}
+.article a:link { /* 文章链接的显示颜色 */
+    color: skyblue;
+}
+.article a:hover { /* 鼠标悬浮在文章链接上的颜色*/
+    color: red;
+}
+
+
+.date { /* 文章div中的时间的布局及样式设计 */
+    font-weight: bolder;
+    font-size: smaller;
+    margin: 15px 3px;
+    float: right;
+}
+.article_head { /* 文章标题区为一个div，设计其样式与首行缩进*/
+    border-left: 8px solid olivedrab;
+    text-indent: 18px;
+}
+.article_body { /* 文章体的缩进，及字体样式*/
+    text-indent: 18px;
+    font-family: "Songti TC";
+}
+.article_author { /* 文章作者的字体样式与缩进*/
+    text-indent: 18px;
+    font-family: "Songti TC";
+    font-size: smaller;
+}
+
