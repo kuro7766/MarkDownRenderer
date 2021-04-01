@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/contrib/auto-render.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="marked.min.js"></script>
+<div id="content">markdown</div>
+<script src="https://unpkg.com/mermaid@8.8.4/dist/mermaid.min.js"></script>
+
+<script>
+    // $("#content").html(marked('# hello\nworld $\\delta abc$'));
+    var s="";
+    $("#content").html(marked('# hello\nworld '+
+        '$\\exists u(sc(u)\\land\\lnot\\exist w(sc(w)\\land w[0]=1\\land w[1]=2)\\land\\lnot\\exist v(w[3]=v[3]\\land u[0]=v[0]\\land u[1]=v[1]))$' +
+        '\n' +
+        '```mermaid\n' +
+        'graph TD;A-->B;A-->C;B-->D;C-->D;\n' +
+        '\n' +
+        '```'));
+    var renderer=marked.Renderer();
+    renderer.code = function (code, language) {
+        if(code.match(/^sequenceDiagram/)||code.match(/^graph/)){
+            return '<div class="mermaid">'+code+'</div>';
+        }
+    };
+</script>
+</body>
+</html>
