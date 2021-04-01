@@ -33,6 +33,9 @@
 
 <!--send scroll msg to flutter-->
 <script src="script/scroll.js"></script>
+<script src="script/send.js"></script>
+<script src="script/heightQuery.js"></script>
+
 
 <!--markdown area-->
 <div id="content"></div>
@@ -66,17 +69,6 @@
                 {left: "$", right: "$", display: false}
             ]
         });
-
-    }
-
-    f = function () {
-        console.log($('#content').height());
-        setTimeout(f, 1000);
-    };
-    setTimeout(f, 1000);
-
-    window.onmessage = function (ev) {
-        var data = ev.data;
     }
 
     $(document).ready(function () {
@@ -96,6 +88,8 @@
 
 
 </script>
+
+<script src="script/flutterlistener.js"></script>
 
 </body>
 </html>
