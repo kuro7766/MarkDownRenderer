@@ -28,18 +28,22 @@
 
 <script>
     // $("#content").html(marked('# hello\nworld $\\delta abc$'));
-    var s="";
-    $("#content").html(marked('# hello\nworld '+
+    var s = "";
+    $("#content").html(marked('# hello\nworld ' +
         '$\\exists u(sc(u)\\land\\lnot\\exist w(sc(w)\\land w[0]=1\\land w[1]=2)\\land\\lnot\\exist v(w[3]=v[3]\\land u[0]=v[0]\\land u[1]=v[1]))$' +
         '\n' +
         '```mermaid\n' +
         'graph TD;A-->B;A-->C;B-->D;C-->D;\n' +
         '\n' +
-        '```'));
-    var renderer=marked.Renderer();
+        '```' +
+        '\n' +
+        '$\\delta a_{hello world}$'));
+    var renderer = marked.Renderer();
     renderer.code = function (code, language) {
-        if(code.match(/^sequenceDiagram/)||code.match(/^graph/)){
-            return '<div class="mermaid">'+code+'</div>';
+        console.log(language);
+        console.log(code);
+        if (code.match(/^mermaid/) || code.match(/^graph/)) {
+            return '<div class="mermaid">' + 'abc' + '</div>';
         }
     };
 </script>
