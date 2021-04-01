@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Test Title 2021.4.1</title>
     <link rel="stylesheet" href="css/mdstyle.css">
+    <link rel="stylesheet" href="css/disablescroll.css">
 
     <style>
         h2, h1, h3 {
@@ -30,66 +31,28 @@
 <!--mermaid 初始化-->
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 
+<!--send scroll msg to flutter-->
+<script src="script/scroll.js"></script>
 
-<!--<script>-->
-<!--    document.addEventListener("DOMContentLoaded", function () {-->
-<!--        renderMathInElement(document.body, {-->
-<!--            delimiters: [-->
-<!--                {left: "$$", right: "$$", display: true},-->
-<!--                {left: "$", right: "$", display: false}-->
-<!--            ]-->
-<!--        });-->
-<!--    });-->
-<!--</script>-->
-
-
-<div id="content">markdown</div>
+<!--markdown area-->
+<div id="content"></div>
 
 <script>
+
+    //init mermaid
     var renderer = new marked.Renderer();
     renderer.code = function (code, language) {
-        if (language == 'mermaid')
+        if (language === 'mermaid')
             return '<pre class="mermaid">' + code + '</pre>';
         else
             return '<pre><code>' + code + '</code></pre>';
     };
 
-    $(document).ready(function () {
+
+    function show(x) {
         var html =
             marked(
-                [
-                    'Markdown Mermaid Example',
-                    '------------------------',
-                    '',
-                    '```mermaid',
-                    'graph TD',
-                    '  A-->B',
-                    '  A-->C',
-                    '  B-->D',
-                    '  C-->D',
-                    '```',
-                    'SequenceDiagram',
-                    '```mermaid',
-                    'sequenceDiagram',
-                    '  participant John',
-                    '  participant Alice',
-                    '  Alice->>John: Hello',
-                    '  John-->Alice: Hi',
-                    '```',
-                    '$\\delta a$' +
-                    '\n' +
-                    '```mermaid' +
-                    '\n' +
-                    'graph TD' +
-                    '\n' +
-                    'A-->B' +
-                    '\n' +
-                    '```' +
-                    '\n' +
-                    '> quote,it"s said that' +
-                    '\n' +
-                    'long long ago'
-                ].join('\n'),
+                x,
                 {renderer: renderer}
             );
 
@@ -102,6 +65,20 @@
                 {left: "$", right: "$", display: false}
             ]
         });
+    }
+
+    window.onmessage = function (ev) {
+        var data = ev.data;
+    }
+
+    $(document).ready(function () {
+        show("```mermaid" +
+            "\n" +
+            "graph TD" +
+            "\n" +
+            "A-->B" +
+            "\n" +
+            "```");
     });
 
 
