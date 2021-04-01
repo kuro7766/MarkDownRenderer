@@ -37,6 +37,7 @@
 <!--markdown area-->
 <div id="content"></div>
 
+
 <script>
 
     //init mermaid
@@ -65,46 +66,36 @@
                 {left: "$", right: "$", display: false}
             ]
         });
+
     }
+
+    f = function () {
+        console.log($('#content').height());
+        setTimeout(f, 1000);
+    };
+    setTimeout(f, 1000);
 
     window.onmessage = function (ev) {
         var data = ev.data;
     }
 
     $(document).ready(function () {
-        show("```mermaid" +
+        show("![](http://kuroweb.cf/picture/1617161678412.jpg)" +
+            "\n" +
+            "```mermaid" +
             "\n" +
             "graph TD" +
             "\n" +
             "A-->B" +
             "\n" +
-            "```");
+            "```" +
+            "\n" +
+            "$$\\delta a^{f}$$" +
+            "");
     });
 
 
 </script>
 
-<div>
-    abc
-    <div>
-        def
-    </div>
-</div>
-
-Here is one fixed mermaid diagram:
-<div class="mermaid">
-    graph TD
-    A[Client] --> B[Load Balancer]
-    B --> C[Server1]
-    B --> D[Server2]
-</div>
-
-And here is another:
-<div class="mermaid">
-    graph TD
-    A[Client] -->|tcp_123| B(Load Balancer)
-    B -->|tcp_456| C[Server1]
-    B -->|tcp_456| D[Server2]
-</div>
 </body>
 </html>
