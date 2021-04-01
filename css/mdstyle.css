@@ -1,0 +1,7 @@
+blockquote {
+    position: relative;
+    margin: 40px 0;
+    border: 2px solid white;
+    box-shadow: 2px 2px 4px mediumpurple;
+    text-indent: 1.6em;
+}

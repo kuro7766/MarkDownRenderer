@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <link rel="stylesheet" href="css/mdstyle.css">
 
     <style>
-        p {
+        h2, h1, h3 {
             border-style: solid;
             /*border-left-color: coral;*/
-            border-left-width:10px;
+            border-left-width: 10px;
             border-color: coral;
         }
+
+        /*path selection*/
+        /*body>div>div{*/
+        /*    background: red;*/
+        /*}*/
+
     </style>
 </head>
 <body>
@@ -78,7 +84,11 @@
                     '\n' +
                     'A-->B' +
                     '\n' +
-                    '```'
+                    '```' +
+                    '\n' +
+                    '> quote,it"s said that' +
+                    '\n' +
+                    'long long ago'
                 ].join('\n'),
                 {renderer: renderer}
             );
@@ -96,6 +106,14 @@
 
 
 </script>
+
+<div>
+    abc
+    <div>
+        def
+    </div>
+</div>
+
 Here is one fixed mermaid diagram:
 <div class="mermaid">
     graph TD
