@@ -49,10 +49,6 @@
 <!--mermaid 初始化-->
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 
-<!--send scroll msg to flutter-->
-<script src="script/scroll.js"></script>
-<script src="script/send.js"></script>
-<script src="script/heightQuery.js"></script>
 
 
 <!--markdown area-->
@@ -100,17 +96,13 @@
         sendMsg({'type': 'webloaded', 'msg': ''});
     });
 
-    if (window.initialized === undefined) {
-        flutterListener();
-        heightQuery();
-        scrollListener();
-    } else {
-        window.initialized = 1;
-    }
+
 
 </script>
 
-<script src="script/flutterlistener.js"></script>
+<!--send scroll msg to flutter-->
+<script src="script/flutterChannel.js"></script>
+
 
 </body>
 </html>
