@@ -1,4 +1,4 @@
-if (window.initialized === undefined) {
+if (window.xInitialized === undefined) {
     window._counter = 0;
     window.addEventListener('mousewheel', function (e, delta) {
         // var name=e.target.className;
@@ -44,5 +44,5 @@ if (window.initialized === undefined) {
     };
     setTimeout(f, 1000);
 } else {
-    window.initialized = 1;
+    window.xInitialized = 1;
 }
