@@ -5,7 +5,9 @@
     <title>Test Title 2021.4.1</title>
     <link rel="stylesheet" href="css/mdstyle.css">
     <link rel="stylesheet" href="css/disablescroll.css">
-
+<!--    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/default.min.css">-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/vs2015.min.css">
     <style>
         h2, h1, h3 {
             border-style: solid;
@@ -13,7 +15,7 @@
             border-left-width: 10px;
             border-color: coral;
         }
-        body{
+        body ,html{
             margin-top: 0;
             padding-top: 0;
         }
@@ -25,6 +27,11 @@
     </style>
 </head>
 <body>
+
+<!--hightlight js-->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+
+
 <!-- KaTeX -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/katex.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-rc.1/katex.min.js"></script>
@@ -87,8 +94,14 @@
             "\n" +
             "$$\\delta a^{f}$$" +
             "");
+        show('```java' +
+            '\n' +
+            'public static void main(){' +
+            '\n System.out.println("hello world");' +
+            '\n}' +
+            '\n```')
         sendMsg({'type': 'webloaded', 'msg': ''});
-
+        hljs.initHighlightingOnLoad();
     });
 
 
