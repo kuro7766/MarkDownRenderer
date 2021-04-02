@@ -20,6 +20,10 @@
             margin-top: 0;
             padding-top: 0;
         }
+
+        code{
+            font-size: 22px;
+        }
         /*path selection*/
         /*body>div>div{*/
         /*    background: red;*/
@@ -86,6 +90,10 @@
 
     $(document).ready(function () {
         show("加载中...");
+        // show("```java" +
+        //     "\n" +
+        //     "public staic " +
+        //     "\n```");
         sendMsg({'type': 'webloaded', 'msg': ''});
     });
 
