@@ -12,5 +12,6 @@ remote 为 o，不是origin
 |    scroll   |     deltaY   | 滚动y距离 |
 |    webloaded   |     -   | 网页加载完成 |
 |    received   |     -   | iframe接收到flutter消息 |
+|    disconnect   |     -   | flutter拒绝接收以后的消息 |
 
 
