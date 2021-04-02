@@ -79,6 +79,7 @@
                 {left: "$", right: "$", display: false}
             ]
         });
+        hljs.initHighlightingOnLoad();
     }
 
     $(document).ready(function () {
@@ -101,7 +102,6 @@
             '\n}' +
             '\n```')
         sendMsg({'type': 'webloaded', 'msg': ''});
-        hljs.initHighlightingOnLoad();
     });
 
 
