@@ -12,6 +12,7 @@
         });
         setTimeout(f, 1000);
         window._timeOuts++;
+        console.log('timeout:'+window._timeOuts);
     };
     setTimeout(f, 1000);
 })();
