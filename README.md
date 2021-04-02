@@ -10,5 +10,6 @@ remote 为 o，不是origin
 |    setHeight   |     h   | 高度| 计数器防冲突
 |    render   |     your markdown code   | 需要渲染的markdown |
 |    scroll   |     deltaY   | 滚动y距离 |
+|    webloaded   |     -   | 网页加载完成 |
 
 
