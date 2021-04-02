@@ -1,4 +1,4 @@
-(function anm() {
+function heightQuery() {
     window._previousHeight = 0;
     window._timeOuts = 0;
     var f = function () {
@@ -15,4 +15,4 @@
         console.log('timeout:'+window._timeOuts);
     };
     setTimeout(f, 1000);
-})();
+}
