@@ -13,5 +13,6 @@ remote 为 o，不是origin
 |    webloaded   |     -   | 网页加载完成 |
 |    received   |     -   | iframe接收到flutter消息 |
 |    disconnect   |     -   | flutter拒绝接收以后的消息 |
+|    log   |     -   | 让另一个客户端打印日志 |
 
 
