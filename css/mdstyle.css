@@ -28,3 +28,7 @@ blockquote {
 code{
     background-color: #F3F4F4;
 }
+
+img{
+    max-width: 200px;
+}
