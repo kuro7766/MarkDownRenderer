@@ -67,5 +67,11 @@ if (window.xInitialized === undefined) {
 
 $(document).ready(function () {
     show("加载中...");
+    show('```java' +
+        '\n' +
+        'public static void main(){' +
+        '}' +
+        '\n' +
+        '```')
     sendMsg({'type': 'webloaded', 'msg': ''});
 });
