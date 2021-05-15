@@ -67,11 +67,11 @@ if (window.xInitialized === undefined) {
 
 $(document).ready(function () {
     show("加载中...");
-    // show('```java' +
+    // show('# 标题测试\n```\njava' +
     //     '\n' +
-    //     'public static void main(){' +
+    //     'public static void main(){\n' +
     //     '}' +
     //     '\n' +
-    //     '```')
+    //     '```');
     sendMsg({'type': 'webloaded', 'msg': ''});
 });
